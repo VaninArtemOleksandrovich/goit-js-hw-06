@@ -1,8 +1,8 @@
-const getNode = (selector) => {
+const getSel = (selector) => {
     return document.querySelector(selector);
   };
   
-  const getNodesListInNode = (node, selector) => {
+  const getSelListInNode = (node, selector) => {
     return node.querySelectorAll(selector);
   };
   
@@ -14,8 +14,8 @@ const getNode = (selector) => {
     });
   };
   
-  const list = getNode("#categories");
-  const items = getNodesListInNode(list, "li.item");
+  const list = getSel("#categories");
+  const items = getSelListInNode(list, "li.item");
   
   console.log("Number of categories: ", items.length);
   console.log("");
