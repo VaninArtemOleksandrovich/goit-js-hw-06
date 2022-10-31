@@ -1,17 +1,23 @@
-const listWithId = document.querySelector('#menu');
-listWithId.style.textTransform = 'uppercase';
-listWithId.style.fontSize = '24px';
-console.log(listWithId);
-
-const listWithClass = document.querySelector('.menu');
-console.log(listWithClass);
-
-const menuItemsByTagName = document.querySelectorAll("li");
-console.log(menuItemsByTagName);
-
-const menuItemsByClass = document.querySelectorAll(".menu-item");
-console.log(menuItemsByClass);
-
-const firstMenuItem = document.querySelector(".menu-item");
-firstMenuItem.style.color = 'tomato';
-console.log(firstMenuItem);
+const ingredients = [
+    "Potatoes",
+    "Mushrooms",
+    "Garlic",
+    "Tomatos",
+    "Herbs",
+    "Condiments",
+  ];
+  const createListOfIndgredients = (ingredients) => {
+    const nodesList = [];
+    ingredients.forEach((ingredient) => {
+      const element = document.createElement("li");
+      element.textContent = ingredient;
+      element.classList.add("item");
+      nodesList.push(element);
+    });
+    return nodesList;
+  };
+  const list = document.querySelector("#ingredients");
+  
+  const listOfIngredients = createListOfIndgredients(ingredients);
+  
+  list.append(...listOfIngredients);
