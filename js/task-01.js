@@ -1,6 +1,8 @@
-const getSel = (selector) => {
-  return document.querySelector(selector);
-};
-const getSelListInNode = (node, selector) => {
-  return node.querySelectorAll(selector)
+const allCategoriesRef = document.querySelectorAll('.item');
+
+console.log(`Number of categories: ${allCategoriesRef.length}`);
+
+for (let category of allCategoriesRef) {
+  console.log(`Category: ${category.firstElementChild.textContent}`);
+  console.log(`Elements: ${category.lastElementChild.childElementCount}`);
 }

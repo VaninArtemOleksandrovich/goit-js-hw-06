@@ -19,28 +19,3 @@ inputRef.addEventListener('blur', handleChangeBorderInput);
 
 
 
-const input = document.querySelector("#validation-input");
-
-
-input.addEventListener("blur", checkInputValue);
-
-
-function checkInputValue(event) {
-  const inputValue = event.currentTarget.value;
-  const valueLength = event.currentTarget.dataset.length;
-  if (inputValue.length < +valueLength) {
-    setInvalidClass(event.currentTarget);
-  } else {
-    setValidClass(event.currentTarget);
-  }
-}
-
-function setInvalidClass(node) {
-  node.classList.remove("valid");
-  node.classList.add("invalid");
-}
-
-function setValidClass(node) {
-  node.classList.remove("invalid");
-  node.classList.add("valid");
-}
