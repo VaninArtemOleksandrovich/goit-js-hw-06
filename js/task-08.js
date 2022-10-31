@@ -1,45 +1,21 @@
-<!DOCTYPE html>
-<html lang="ru">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Task 8</title>
-    <link rel="stylesheet" href="css/common.css" />
-    <style>
-      .login-form {
-        max-width: 320px;
-        display: flex;
-        flex-direction: column;
-      }
+const loginForm = document.querySelector(".login-form");
 
-      .login-form label {
-        margin-bottom: 16px;
-      }
+const formValidator = (event) => {
+    event.preventDefault();
 
-      .login-form input,
-      .login-form button {
-        width: 100%;
-        padding: 4px;
-        font: inherit;
-      }
-    </style>
-  </head>
-  <body>
-    <p><a href="index.html">Go back</a></p>
+    const { elements } = event.currentTarget;
 
-    <form class="login-form">
-      <label>
-        Email
-        <input type="email" name="Email" />
-      </label>
-      <label>
-        Password
-        <input type="password" name="Password" />
-      </label>
-      <button type="submit">Login</button>
-    </form>
+    const emailFildValue = elements["email"].value;
+    const passwdFildValue = elements["password"].value.trim();
 
-    <script src="js/task-08.js" type="module"></script>
-  </body>
-</html>
+    if (emailFildValue === "" || passwdFildValue === "") {
+        alert("Some fields are empty!!!");
+        return;
+    }
+
+    console.log({ email: `${emailFildValue}`, password: `${passwdFildValue}` });
+
+    event.currentTarget.reset();
+};
+
+loginForm.addEventListener("submit", formValidator);
